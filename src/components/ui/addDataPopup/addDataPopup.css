@@ -1,0 +1,59 @@
+.popup {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  background-color: white;
+  padding: 25px 25px;
+  min-width: 500px;
+  min-height: 200px;
+  top: 50%;
+  left: 50%;
+  z-index: 11;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  width: 100%;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+}
+
+.label {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.input {
+  width: 95%;
+  border-radius: 8px;
+  height: 35px;
+  border: 1px solid #213547;
+  padding-inline: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 28px;
+  color: rgb(57, 57, 57);
+  background-color: transparent;
+}
+
+.submit-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.submit {
+  background-color: #213547;
+  color: white;
+  width: 150px;
+}

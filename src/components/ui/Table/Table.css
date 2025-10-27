@@ -1,0 +1,21 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 400px;
+}
+
+.table th,
+.table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.table td:nth-child(4) {
+  text-align: center;
+}
+
+.delete-icon {
+  width: 16px;
+  height: 16px;
+}
