@@ -26,14 +26,17 @@ const Table: React.FC<TableProps> = ({ headers, data, setData }) => {
     const copyData = [...data];
     const slicedData: Record<string, unknown>[][] = [];
 
-    while (copyData.length >= 5) {
-      const page = data.splice(0, rows);
+    while (copyData.length > 0) {
+      const page = copyData.splice(0, rows);
 
       slicedData.push(page);
     }
 
     return slicedData;
   };
+
+  const paginatedData = data ? sliceData(data) : [];
+  const currentPageData = paginatedData[activePage - 1] || [];
 
   const handleDelete = (index: number) => {
     setData?.((prev) => prev.filter((_, i) => i !== index));
@@ -44,6 +47,7 @@ const Table: React.FC<TableProps> = ({ headers, data, setData }) => {
   };
 
   return (
+    <>
     <table className="table">
       <thead>
         <tr>
@@ -53,7 +57,7 @@ const Table: React.FC<TableProps> = ({ headers, data, setData }) => {
         </tr>
       </thead>
       <tbody>
-        {data?.map((row, indexRow) => (
+        {currentPageData.map((row, indexRow) => (
           <tr key={indexRow} onClick={() => handleRowClick(row)}>
             {headers.map((header) => (
               <td key={header.id}>
@@ -76,6 +80,19 @@ const Table: React.FC<TableProps> = ({ headers, data, setData }) => {
         ))}
       </tbody>
     </table>
+
+    <div className="bottom">
+      <button onClick={handlePrev} disabled={handlePrevDisabled}>{'<'}</button>
+      {activePage > 1 && (
+        <div>{activePage - 1}</div>
+      )}
+      <div>{activePage}</div>
+      {activePage < countOfPages && (
+        <div>{activePage + 1}</div>
+      )}
+      <button onClick={handleNext} disabled={handleNextDisabled}>{'>'}</button>
+    </div>
+    </>
   );
 };
 

@@ -19,3 +19,11 @@
   width: 16px;
   height: 16px;
 }
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  gap: 8px;
+}
