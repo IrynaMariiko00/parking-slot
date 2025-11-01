@@ -15,3 +15,11 @@ export type addDataPopupType = {
   openPopup: React.Dispatch<React.SetStateAction<boolean>>;
   setMainTableData: React.Dispatch<React.SetStateAction<TableRow[]>>;
 };
+
+export interface TableRowProps {
+  indexRow: number,
+  row: Record<string, unknown>,
+  onRowClick: (row: Record<string, unknown>) => void,
+  headers: TableHeaders[],
+  onDelete: (index: number) => void,
+}

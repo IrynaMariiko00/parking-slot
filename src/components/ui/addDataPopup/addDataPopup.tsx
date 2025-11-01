@@ -1,22 +1,13 @@
-import { useState } from 'react';
 import { addData } from '~/constants/addData';
 import './addDataPopup.css';
-import type { addDataPopupType } from '~/types/TableProps';
+import useAddData from './hooks/useAddData';
+import type { addDataPopupType } from '~/types/tableProps';
 
 const AddDataPopup: React.FC<addDataPopupType> = ({
   openPopup,
   setMainTableData,
 }) => {
-  const [formData, setFormData] = useState<{ [key: string]: string | number }>(
-    {}
-  );
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    setMainTableData((prev) => [...prev, formData]);
-    openPopup(false);
-  };
+  const { handleSubmit, setFormData } = useAddData({ openPopup, setMainTableData });
 
   return (
     <section className="popup">

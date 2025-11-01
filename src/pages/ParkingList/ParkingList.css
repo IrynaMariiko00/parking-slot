@@ -1,20 +1,11 @@
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10;
-}
-
 .parking-list {
   height: 100vh;
 }
 
-.add-btn {
+.button-container {
   margin-bottom: 20px;
-  background-color: #213547;
-  color: white;
-  display: block;
+  display: flex;
+  justify-content: flex-start;
 }
+
+

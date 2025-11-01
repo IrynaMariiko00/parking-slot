@@ -5,7 +5,10 @@ export const addData = [
     placeholder: 'Enter the address',
     type: 'text',
   },
-  { key: 'name', label: 'Name', placeholder: 'Enter the name', type: 'text' },
+  { key: 'name', 
+    label: 'Name', 
+    placeholder: 'Enter the name', 
+    type: 'text' },
   {
     key: 'slots',
     label: 'Slots',
