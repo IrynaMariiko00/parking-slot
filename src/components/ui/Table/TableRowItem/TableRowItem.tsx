@@ -2,9 +2,15 @@ import deleteIcon from '~/assets/icons/deleteIcon.svg';
 import { TableHeaders, TableRowProps, TableRow } from '~/types/tableProps';
 import './TableRowItem.css';
 
-const TableRowItem: React.FC<TableRowProps> = ({ indexRow, row, onRowClick, headers, onDelete }) => {
+const TableRowItem: React.FC<TableRowProps> = ({
+  indexRow,
+  row,
+  onRowClick,
+  headers,
+  onDelete,
+}) => {
   return (
-    <tr key={indexRow} onClick={() => onRowClick(row)} className='row'>
+    <tr key={indexRow} onClick={() => onRowClick(row)} className="row">
       {headers.map((header: TableHeaders) => {
         const key = header.id as keyof TableRow;
         return (
@@ -20,7 +26,10 @@ const TableRowItem: React.FC<TableRowProps> = ({ indexRow, row, onRowClick, head
                 }}
               />
             ) : header.id === 'color' ? (
-              <span className={`color-box color-${row.color}`} title={row.color} />
+              <span
+                className={`color-box color-${row.color}`}
+                title={row.color}
+              />
             ) : (
               String(row[key] ?? '')
             )}

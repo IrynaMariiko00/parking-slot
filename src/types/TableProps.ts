@@ -22,11 +22,11 @@ export type addDataPopupType = {
 };
 
 export interface TableRowProps {
-  indexRow: number,
+  indexRow: number;
   row: TableRow;
-  onRowClick: (row: TableRow) => void,
-  headers: TableHeaders[],
-  onDelete: (index: number) => void,
+  onRowClick: (row: TableRow) => void;
+  headers: TableHeaders[];
+  onDelete: (index: number) => void;
 }
 
 export enum CarColors {

@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const navigateOnRowClick = () => {
   const navigate = useNavigate();
@@ -11,6 +11,6 @@ const navigateOnRowClick = () => {
   };
 
   return { handleRowClick };
-}
+};
 
 export default navigateOnRowClick;
