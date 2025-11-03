@@ -1,4 +1,5 @@
 import type { PaginationProps } from '~/types/paginationProps';
+import './Pagination.css';
 
 const Pagination: React.FC<PaginationProps> = ({ onPrev, prevDisabled, activePage, countOfPages, onNext, nextDisabled }) => {
   return (

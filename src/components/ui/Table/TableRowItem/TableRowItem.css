@@ -1,0 +1,21 @@
+.color-box {
+  display: flex;
+  justify-self: center;
+  width: 30px;
+  height: 30px;
+}
+
+.row:hover {
+    background-color: rgb(228, 240, 255);
+}
+
+.color-red { background-color: red; }
+.color-blue { background-color: blue; }
+.color-yellow { background-color: yellow; }
+.color-green { background-color: green; }
+.color-orange { background-color: orange; }
+.color-purple { background-color: purple; }
+.color-pink { background-color: pink; }
+.color-brown { background-color: brown; }
+.color-cyan { background-color: cyan; }
+.color-magenta { background-color: magenta; }

@@ -6,21 +6,19 @@ import {
   secondaryTableHeaders,
 } from '~/constants/tableData';
 import useTableData from '~/components/ui/Table/hooks/useTableData';
-
-const detailsHaders = secondaryTableHeaders;
-const detailsData = secondaryTableData;
+import { MainButtonColors } from '~/types/dataButtonProps';
 
 const DetailsPage = () => {
- const {data, addRandomData, deleteRandomData} = useTableData(detailsData);
-
+ const {data, addRandomData, deleteRandomData} = useTableData(secondaryTableData);
+ 
   return (
     <section>
       <h1>Details</h1>
       <div className="buttons-container">
-        <MainButton onAction={addRandomData} title='Add' color='blue'/>
-        <MainButton onAction={deleteRandomData} title='Delete' color='red'/>
+        <MainButton onAction={addRandomData} title='Add' color={MainButtonColors.Blue}/>
+        <MainButton onAction={deleteRandomData} title='Delete' color={MainButtonColors.Red}/>
       </div>
-      <Table headers={detailsHaders} data={data} />
+      <Table headers={secondaryTableHeaders} data={data} />
     </section>
   );
 };

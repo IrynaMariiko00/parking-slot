@@ -9,17 +9,35 @@ export type TableProps = {
   setData?: React.Dispatch<React.SetStateAction<TableRow[]>>;
 };
 
-export type TableRow = Record<string, string | number>;
+export type TableRow = {
+  id: number;
+  brand: string;
+  year: number | string;
+  color: CarColors;
+};
 
 export type addDataPopupType = {
-  openPopup: React.Dispatch<React.SetStateAction<boolean>>;
+  openModal: React.Dispatch<React.SetStateAction<boolean>>;
   setMainTableData: React.Dispatch<React.SetStateAction<TableRow[]>>;
 };
 
 export interface TableRowProps {
   indexRow: number,
-  row: Record<string, unknown>,
-  onRowClick: (row: Record<string, unknown>) => void,
+  row: TableRow;
+  onRowClick: (row: TableRow) => void,
   headers: TableHeaders[],
   onDelete: (index: number) => void,
+}
+
+export enum CarColors {
+  Red = 'red',
+  Blue = 'blue',
+  Yellow = 'yellow',
+  Green = 'green',
+  Orange = 'orange',
+  Purple = 'purple',
+  Pink = 'pink',
+  Brown = 'brown',
+  Cyan = 'cyan',
+  Magenta = 'magenta',
 }

@@ -1,13 +1,13 @@
 import { addData } from '~/constants/addData';
-import './addDataPopup.css';
+import './addDataModal.css';
 import useAddData from './hooks/useAddData';
 import type { addDataPopupType } from '~/types/tableProps';
 
-const AddDataPopup: React.FC<addDataPopupType> = ({
-  openPopup,
+const AddDataModal: React.FC<addDataPopupType> = ({
+  openModal,
   setMainTableData,
 }) => {
-  const { handleSubmit, setFormData } = useAddData({ openPopup, setMainTableData });
+  const { handleSubmit, setFormData } = useAddData({ openModal, setMainTableData });
 
   return (
     <section className="popup">
@@ -36,11 +36,11 @@ const AddDataPopup: React.FC<addDataPopupType> = ({
           </button>
         </div>
       </form>
-      <button type="button" className="close" onClick={() => openPopup(false)}>
+      <button type="button" className="close" onClick={() => openModal(false)}>
         x
       </button>
     </section>
   );
 };
 
-export default AddDataPopup;
+export default AddDataModal;
