@@ -11,6 +11,7 @@ import { MainButtonColors } from '~/types/dataButtonProps';
 const ParkingList = () => {
   const { data: mainTableData, setData: setMainTableData } =
     usePersistentTableData('mainTableData');
+
   const { isModalOpen, setIsModalOpen, openModal, closeModal } = useModal();
 
   return (

@@ -1,17 +1,16 @@
 import React from 'react';
-import { MainButtonColors, type DataButtonProps } from '~/types/dataButtonProps';
+import {
+  MainButtonColors,
+  type DataButtonProps,
+} from '~/types/dataButtonProps';
 import './mainButton.css';
 
-const MainButton: React.FC<DataButtonProps> = ({ onAction, title, color = MainButtonColors.Blue }) => {
+const MainButton: React.FC<DataButtonProps> = ({ onAction, title, color }) => {
   let colorClass = '';
   switch (color) {
     case MainButtonColors.Red:
-      colorClass = 'btn-red';
-      break;
-
     case MainButtonColors.Blue:
-      default:
-      colorClass = 'btn-blue';
+      colorClass = `btn-${color}`;
       break;
   }
 

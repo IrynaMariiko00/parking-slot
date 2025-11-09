@@ -1,4 +1,4 @@
-import { CarColors } from "~/types/tableProps";
+import { CarColors } from '~/types/TableProps';
 
 export const mainTableHeaders = [
   { id: 'address', label: 'Address' },

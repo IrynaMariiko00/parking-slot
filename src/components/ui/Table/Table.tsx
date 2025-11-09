@@ -6,6 +6,7 @@ import TableRowItem from './TableRowItem/TableRowItem';
 import type { TableProps, TableRow } from '~/types/TableProps';
 import Pagination from '~/components/ui/Pagination/Pagination';
 
+// data can be different, use generic
 const Table: React.FC<TableProps> = ({ headers, data, setData }) => {
   const {
     activePage,

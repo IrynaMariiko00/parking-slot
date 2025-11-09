@@ -1,18 +1,29 @@
 import { addData } from '~/constants/addData';
 import './addDataModal.css';
 import useAddData from './hooks/useAddData';
-import type { addDataPopupType } from '~/types/tableProps';
+import type { addDataPopupType } from '~/types/TableProps';
 
 const AddDataModal: React.FC<addDataPopupType> = ({
   openModal,
   setMainTableData,
 }) => {
-  const { handleSubmit, setFormData } = useAddData({ openModal, setMainTableData });
+  const { handleSubmit, setFormData } = useAddData({
+    openModal,
+    setMainTableData,
+  });
+
+  const closeModal = () => openModal(false);
+
+  const onAddSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleSubmit();
+    closeModal();
+  };
 
   return (
     <section className="popup">
       <h1>Fill in all fields</h1>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={onAddSubmit}>
         {addData.map((data) => (
           <div key={data.key} className="data">
             <label className="label">{data.label}</label>
@@ -36,7 +47,7 @@ const AddDataModal: React.FC<addDataPopupType> = ({
           </button>
         </div>
       </form>
-      <button type="button" className="close" onClick={() => openModal(false)}>
+      <button type="button" className="close" onClick={closeModal}>
         x
       </button>
     </section>
