@@ -1,5 +1,5 @@
 import deleteIcon from '~/assets/icons/deleteIcon.svg';
-import { TableHeaders, TableRowProps, TableRow } from '~/types/tableProps';
+import { TableHeaders, TableRowProps, TableRow } from '~/types/TableProps';
 import './TableRowItem.css';
 
 const TableRowItem: React.FC<TableRowProps> = ({

@@ -8,18 +8,21 @@ import {
 import useTableData from '~/components/ui/Table/hooks/useTableData';
 import { MainButtonColors } from '~/types/dataButtonProps';
 import useNavigation from '~/hooks/useNavigation';
+import useForceBackNavigation from './hooks/useForceBackNavigation';
 
 const DetailsPage = () => {
   const { data, addRandomData, deleteRandomData } =
     useTableData(secondaryTableData);
 
   const { handleGoBack } = useNavigation();
+  useForceBackNavigation({ data: data });
 
   return (
     <section>
       <h1>Details</h1>
-
-      <div onClick={handleGoBack}>← Go Back</div>
+      <div onClick={handleGoBack} className="back-button">
+        ← Go Back
+      </div>
       <div className="buttons-container">
         <MainButton
           onAction={addRandomData}

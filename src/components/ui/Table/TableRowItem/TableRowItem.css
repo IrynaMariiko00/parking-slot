@@ -9,6 +9,10 @@
     background-color: rgb(228, 240, 255);
 }
 
+.delete-icon {
+  cursor: pointer;
+}
+
 .color-red { background-color: red; }
 .color-blue { background-color: blue; }
 .color-yellow { background-color: yellow; }

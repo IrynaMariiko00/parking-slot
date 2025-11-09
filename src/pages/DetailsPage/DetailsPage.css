@@ -3,3 +3,11 @@
   gap: 15px;
   margin-bottom: 20px;
 }
+
+.back-button {
+  cursor: pointer;
+  display: flex;
+  justify-self: start;
+  font-weight: 700;  
+  margin-bottom: 15px;
+}

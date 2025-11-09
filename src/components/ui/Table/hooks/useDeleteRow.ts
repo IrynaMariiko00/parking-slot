@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction } from "react";
-import { TableRow } from "~/types/tableProps";
+import { Dispatch, SetStateAction } from 'react';
+import type { TableRow } from '~/types/TableProps';
 
 const DeleteRow = (setData?: Dispatch<SetStateAction<TableRow[]>>) => {
   const handleDelete = (index: number) => {
@@ -7,6 +7,6 @@ const DeleteRow = (setData?: Dispatch<SetStateAction<TableRow[]>>) => {
   };
 
   return { handleDelete };
-}
+};
 
 export default DeleteRow;

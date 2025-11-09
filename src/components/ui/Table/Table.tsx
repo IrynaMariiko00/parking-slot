@@ -3,7 +3,7 @@ import usePagination from '~/hooks/usePagination';
 import useDeleteRow from '~/components/ui/Table/hooks/useDeleteRow';
 import useRowNavigation from '~/components/ui/Table/hooks/useRowNavigation';
 import TableRowItem from './TableRowItem/TableRowItem';
-import type { TableProps, TableRow } from '~/types/tableProps';
+import type { TableProps, TableRow } from '~/types/TableProps';
 import Pagination from '~/components/ui/Pagination/Pagination';
 
 const Table: React.FC<TableProps> = ({ headers, data, setData }) => {
@@ -15,7 +15,7 @@ const Table: React.FC<TableProps> = ({ headers, data, setData }) => {
     handlePrevDisabled,
     handleNextDisabled,
     currentPageData,
-  } = usePagination(data ?? []);
+  } = usePagination((data as TableRow[]) ?? []);
   const { handleRowClick } = useRowNavigation();
   const { handleDelete } = useDeleteRow(setData);
 
