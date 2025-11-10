@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { TableRow } from '~/types/TableProps';
+import { TableRowType } from '~/types/TableProps';
 
 const defaultRowsPerPage = 5;
 
-const usePagination = (data: TableRow[], rowsPerPage = defaultRowsPerPage) => {
+const usePagination = <T extends TableRowType>(data: T[], rowsPerPage = defaultRowsPerPage) => {
   const [activePage, setActivePage] = useState(1);
 
   const countOfPages = Math.ceil((data?.length ?? 0) / rowsPerPage);
@@ -12,7 +12,7 @@ const usePagination = (data: TableRow[], rowsPerPage = defaultRowsPerPage) => {
   const handleNextDisabled = countOfPages === 0 || activePage === countOfPages;
 
   const sliceData = () => {
-    const result: TableRow[][] = [];
+    const result: T[][] = [];
 
     for (let i = 0; i < data.length; i += rowsPerPage) {
       result.push(data.slice(i, i + rowsPerPage));

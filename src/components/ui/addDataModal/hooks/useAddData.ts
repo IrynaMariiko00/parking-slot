@@ -1,18 +1,14 @@
 import { useState } from 'react';
-import { TableRow } from '~/types/TableProps';
 
-const addData = ({
+const addData = <T extends Record<string, unknown>>({
   setMainTableData,
 }: {
-  openModal: (value: boolean) => void;
-  setMainTableData: React.Dispatch<React.SetStateAction<TableRow[]>>;
+  onClose: (value: boolean) => void;
+  setMainTableData: React.Dispatch<React.SetStateAction<T[]>>;
 }) => {
-  const [formData, setFormData] = useState<{ [key: string]: string | number }>(
-    {}
-  );
+  const [formData, setFormData] = useState<T>({} as T);
 
   const handleSubmit = () => {
-    // fix types
     setMainTableData((prev) => [...prev, formData]);
   };
 

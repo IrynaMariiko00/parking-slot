@@ -14,8 +14,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
   return (
     <>
       <div className="overlay" onClick={onClose}></div>
-      {/** rename class */}
-      <div className="popup">{children}</div>
+      <div>{children}</div>
     </>
   );
 };

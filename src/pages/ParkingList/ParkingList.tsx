@@ -8,11 +8,13 @@ import useModal from '~/components/ui/ModalWrapper/hooks/useModal';
 import ModalWrapper from '~/components/ui/ModalWrapper/ModalWrapper';
 import { MainButtonColors } from '~/types/dataButtonProps';
 
+const ADD_MODAL_NAME = 'AddParkingSlotModal'; 
+
 const ParkingList = () => {
   const { data: mainTableData, setData: setMainTableData } =
     usePersistentTableData('mainTableData');
-
-  const { isModalOpen, setIsModalOpen, openModal, closeModal } = useModal();
+  
+  const { isModalOpen, openModal, closeModal } = useModal(ADD_MODAL_NAME);
 
   return (
     <section className="parking-list">
@@ -26,7 +28,7 @@ const ParkingList = () => {
       </div>
       <ModalWrapper isOpen={isModalOpen} onClose={closeModal}>
         <AddDataModal
-          openModal={setIsModalOpen}
+          onClose={closeModal} 
           setMainTableData={setMainTableData}
         />
       </ModalWrapper>

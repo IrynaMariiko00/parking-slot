@@ -1,7 +1,7 @@
 import useNavigation from '~/hooks/useNavigation';
-import { TableRow } from '~/types/TableProps';
+import { TableRowType } from '~/types/TableProps';
 
-const useForceBackNavigation = ({ data }: { data: TableRow[] }) => {
+const useForceBackNavigation = <T extends TableRowType>({ data }: { data: T[] }) => {
   const { handleGoBack } = useNavigation();
 
   if (data.length === 0) {

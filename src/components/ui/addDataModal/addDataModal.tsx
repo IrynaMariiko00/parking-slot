@@ -4,15 +4,15 @@ import useAddData from './hooks/useAddData';
 import type { addDataPopupType } from '~/types/TableProps';
 
 const AddDataModal: React.FC<addDataPopupType> = ({
-  openModal,
+  onClose,
   setMainTableData,
 }) => {
   const { handleSubmit, setFormData } = useAddData({
-    openModal,
+    onClose,
     setMainTableData,
   });
 
-  const closeModal = () => openModal(false);
+   const closeModal = onClose;
 
   const onAddSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

@@ -3,28 +3,23 @@ export type TableHeaders = {
   label: string;
 };
 
-export type TableProps = {
+export type TableRowType = Record<string, unknown>;
+
+export type TableProps<T extends TableRowType> = {
   headers: TableHeaders[];
-  data?: Record<string, unknown>[];
-  setData?: React.Dispatch<React.SetStateAction<TableRow[]>>;
+  data?: T[];
+  setData?: React.Dispatch<React.SetStateAction<T[]>>;
 };
 
-export type TableRow = {
-  id: number;
-  brand: string;
-  year: number | string;
-  color: CarColors;
+export type addDataPopupType<T extends TableRowType> = {
+  onClose: () => void;
+  setMainTableData: React.Dispatch<React.SetStateAction<T[]>>;
 };
 
-export type addDataPopupType = {
-  openModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setMainTableData: React.Dispatch<React.SetStateAction<TableRow[]>>;
-};
-
-export interface TableRowProps {
+export interface TableRowProps<T extends TableRowType> {
   indexRow: number;
-  row: TableRow;
-  onRowClick: (row: TableRow) => void;
+  row: T;
+  onRowClick: (row: T) => void;
   headers: TableHeaders[];
   onDelete: (index: number) => void;
 }

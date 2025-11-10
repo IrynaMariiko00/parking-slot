@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { TableRow } from '~/types/tableProps';
 import { createExistingData, getRandomRow } from '~/utils/dataUtils';
 
-const useTableData = (detailsData: TableRow[]) => {
-  const [data, setData] = useState<TableRow[]>(createExistingData(detailsData));
+const useTableData = <T extends Record<string, unknown >>(detailsData: T[]) => {
+  const [data, setData] = useState<T[]>(createExistingData(detailsData));
 
   const addRandomData = () => {
     setData((prev) => [...prev, getRandomRow(detailsData)]);

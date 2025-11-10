@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
-import type { TableRow } from '~/types/TableProps';
 
-const DeleteRow = (setData?: Dispatch<SetStateAction<TableRow[]>>) => {
+const DeleteRow = <T extends Record<string, unknown>>(setData?: Dispatch<SetStateAction<T[]>>) => {
   const handleDelete = (index: number) => {
     setData?.((prev) => prev.filter((_, i) => i !== index));
   };
