@@ -1,37 +1,37 @@
-import { useCallback, useContext, useState, createContext } from "react";
+import { useCallback, useContext, useState, createContext } from 'react';
 
 type ModalContextType = {
   openModalName: string | null;
   openModal: (modalName: string) => void;
   closeModal: () => void;
-}
+};
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
-    children,
+  children,
 }) => {
-    const [openModalName, setOpenModalName] = useState<string | null>(null); // AddParkingSlotModal
+  const [openModalName, setOpenModalName] = useState<string | null>(null);
 
-    const openModal = useCallback((modalName: string) => {
-        setOpenModalName(modalName);
-    }, []); // setOpenModalName === AddParkingSlotModal
+  const openModal = useCallback((modalName: string) => {
+    setOpenModalName(modalName);
+  }, []);
 
-    const closeModal = useCallback(() => {
-        setOpenModalName(null);
-    }, []);
+  const closeModal = useCallback(() => {
+    setOpenModalName(null);
+  }, []);
 
-    const contextValue = {
-        openModalName,
-        openModal,
-        closeModal,
-    };
+  const contextValue = {
+    openModalName,
+    openModal,
+    closeModal,
+  };
 
-    return (
-        <ModalContext.Provider value={contextValue}>
-            {children}
-        </ModalContext.Provider>
-    );
+  return (
+    <ModalContext.Provider value={contextValue}>
+      {children}
+    </ModalContext.Provider>
+  );
 };
 
 export const useGlobalModal = () => {

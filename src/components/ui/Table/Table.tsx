@@ -7,7 +7,11 @@ import type { TableProps, TableRowType } from '~/types/TableProps';
 import Pagination from '~/components/ui/Pagination/Pagination';
 
 // data can be different, use generic
-const Table = <T extends TableRowType>({ headers, data, setData } : TableProps<T>) => {
+const Table = <T extends TableRowType>({
+  headers,
+  data,
+  setData,
+}: TableProps<T>) => {
   const {
     activePage,
     countOfPages,

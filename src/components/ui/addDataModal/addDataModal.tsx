@@ -1,9 +1,9 @@
 import { addData } from '~/constants/addData';
 import './addDataModal.css';
 import useAddData from './hooks/useAddData';
-import type { addDataPopupType } from '~/types/TableProps';
+import type { addDataPopupType, TableRowType } from '~/types/TableProps';
 
-const AddDataModal: React.FC<addDataPopupType> = ({
+const AddDataModal: React.FC<addDataPopupType<TableRowType>> = ({
   onClose,
   setMainTableData,
 }) => {
@@ -12,16 +12,14 @@ const AddDataModal: React.FC<addDataPopupType> = ({
     setMainTableData,
   });
 
-   const closeModal = onClose;
-
   const onAddSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     handleSubmit();
-    closeModal();
+    onClose();
   };
 
   return (
-    <section className="popup">
+    <section className="modal">
       <h1>Fill in all fields</h1>
       <form className="form" onSubmit={onAddSubmit}>
         {addData.map((data) => (
@@ -47,7 +45,7 @@ const AddDataModal: React.FC<addDataPopupType> = ({
           </button>
         </div>
       </form>
-      <button type="button" className="close" onClick={closeModal}>
+      <button type="button" className="close" onClick={onClose}>
         x
       </button>
     </section>

@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const navigateOnRowClick = () => {
+const useNavigateOnRowClick = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -13,4 +13,4 @@ const navigateOnRowClick = () => {
   return { handleRowClick };
 };
 
-export default navigateOnRowClick;
+export default useNavigateOnRowClick;
