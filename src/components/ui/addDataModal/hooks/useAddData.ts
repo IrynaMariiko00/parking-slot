@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// merge with useDeleteRow
 const addData = <T extends Record<string, unknown>>({
   setMainTableData,
 }: {

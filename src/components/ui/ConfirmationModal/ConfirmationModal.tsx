@@ -6,8 +6,8 @@ import { MainButtonColors } from '~/types/dataButtonProps';
 const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   title,
   description,
-  onClick,
-  isNoButton,
+  onConfirm,
+  displayNoButton,
   onClose,
 }) => {
   return (
@@ -18,17 +18,17 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         x
       </button>
       <div className="btns">
-        {isNoButton && (
+        {displayNoButton && (
           <MainButton
             onAction={onClose}
             title={'No'}
-            color={MainButtonColors.Red}
+            color={MainButtonColors.Blue}
           />
         )}
         <MainButton
-          onAction={onClick}
+          onAction={onConfirm}
           title={'Yes'}
-          color={MainButtonColors.Blue}
+          color={MainButtonColors.Red}
         />
       </div>
     </section>

@@ -6,7 +6,6 @@ import TableRowItem from './TableRowItem/TableRowItem';
 import type { TableProps, TableRowType } from '~/types/TableProps';
 import Pagination from '~/components/ui/Pagination/Pagination';
 
-// data can be different, use generic
 const Table = <T extends TableRowType>({
   headers,
   data,
@@ -20,7 +19,7 @@ const Table = <T extends TableRowType>({
     handlePrevDisabled,
     handleNextDisabled,
     currentPageData,
-  } = usePagination((data as T[]) ?? []);
+  } = usePagination(data ?? []); // remove everything except currentPageData
   const { handleRowClick } = useRowNavigation();
   const { handleDelete } = useDeleteRow(setData);
 

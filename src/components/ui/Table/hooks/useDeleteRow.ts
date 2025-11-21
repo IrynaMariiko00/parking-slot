@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
+// merge with use addData
 const DeleteRow = <T extends Record<string, unknown>>(
   setData?: Dispatch<SetStateAction<T[]>>
 ) => {

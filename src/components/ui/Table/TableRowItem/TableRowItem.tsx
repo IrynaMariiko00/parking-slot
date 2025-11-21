@@ -23,46 +23,48 @@ const TableRowItem = <T extends TableRowType>({
     closeModal();
   };
 
+  const getCellView = (header: TableHeaders) => {
+    const key = header.id as keyof T;
+
+    if (header.id === 'delete') {
+      return (
+        <img
+          className="delete-icon"
+          alt="delete"
+          src={deleteIcon}
+          onClick={(e) => {
+            e.stopPropagation();
+            openModal();
+          }}
+        />
+      );
+    }
+
+    if (header.id === 'color') {
+      return (
+        <span
+          className={`color-box color-${row.color}`}
+          title={row.color as string}
+        />
+      );
+    }
+
+    return `${row[key]}`;
+  };
+
   return (
     <>
       <tr key={indexRow} onClick={() => onRowClick(row)} className="row">
-        {headers.map((header: TableHeaders) => {
-          const key = header.id as keyof T;
-          return (
-            <td key={header.id}>
-              {header.id === 'delete' ? (
-                <img
-                  className="delete-icon"
-                  alt="delete"
-                  src={deleteIcon}
-                  /* onClick={(e) => {
-                  e.stopPropagation();
-                  onDelete(indexRow);
-                }}
-                 */
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    openModal();
-                  }}
-                />
-              ) : header.id === 'color' ? (
-                <span
-                  className={`color-box color-${row.color}`}
-                  title={row.color as string}
-                />
-              ) : (
-                String(row[key] ?? '')
-              )}
-            </td>
-          );
-        })}
+        {headers.map((header: TableHeaders) => (
+          <td key={header.id}>{getCellView(header)}</td>
+        ))}
       </tr>
       <ModalWrapper isOpen={isModalOpen} onClose={closeModal}>
         <ConfirmationModal
           title={title}
-          onClick={onClick}
+          onConfirm={onClick}
           onClose={closeModal}
-          isNoButton={true}
+          displayNoButton={true}
         />
       </ModalWrapper>
     </>
